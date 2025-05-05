@@ -1,0 +1,72 @@
+[
+  {
+    "bindings": {
+      "cmd-o": ["projects::OpenRecent", { "create_new_window": true }]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-cmd-o": "workspace::Open",
+      "cmd-n": "menu::SelectNext",
+      "cmd-p": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "Pane",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-n": "search::SelectNextMatch",
+      "cmd-g": "search::SelectPreviousMatch"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "cmd-p": "editor::ContextMenuPrevious",
+      "cmd-n": "editor::ContextMenuNext",
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j j": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "cmd-k cmd-w": "pane::CloseInactiveItems",
+      "ctrl-2": "editor::Rename",
+      "cmd-'": "editor::ExpandAllDiffHunks",
+      "cmd-h": "pane::ActivatePreviousItem",
+      "cmd-l": "pane::ActivateNextItem",
+      "cmd-e": "project_panel::ToggleFocus",
+      "shift-j": null
+      // todo: deprecated
+      // "cmd-m": "editor::GoToHunk"
+      // "cmd-[": "editor::GoToPreviousHunk",
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "shift-j": null,
+      "cmd-h": "pane::ActivatePreviousItem",
+      "cmd-l": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "Terminal",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-t": "workspace::NewTerminal",
+      "cmd-h": "pane::ActivatePreviousItem",
+      "cmd-l": "pane::ActivateNextItem",
+      "escape": "buffer_search::Dismiss",
+      "alt-h": "menu::SelectNext"
+    }
+  }
+]

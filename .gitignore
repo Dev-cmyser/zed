@@ -1,0 +1,12 @@
+.tmp*
+
+.gitc*
+.git-*
+
+themes
+prompts
+embeddings
+conversations
+.netrc
+
+.DS_Store

@@ -1,0 +1,84 @@
+[
+  {
+    "bindings": {
+      "cmd-o": ["projects::OpenRecent", { "create_new_window": true }],
+      "alt-p": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-h": "pane::ActivatePreviousItem",
+      "cmd-l": "pane::ActivateNextItem",
+      "cmd-e": "project_panel::ToggleFocus",
+      "cmd-n": "menu::SelectNext",
+      "cmd-p": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {}
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-n": "search::SelectNextMatch",
+      "cmd-p": "search::SelectPreviousMatch",
+      "cmd-h": "pane::ActivatePreviousItem",
+      "cmd-l": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "TabSwitcher",
+    "bindings": {
+      "k": "menu::SelectPrevious",
+      "j": "menu::SelectNext"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "cmd-p": "editor::ContextMenuPrevious",
+      "cmd-n": "editor::ContextMenuNext",
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j j": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "cmd-k cmd-w": "pane::CloseInactiveItems",
+      "ctrl-2": "editor::Rename",
+      "cmd-'": "editor::ExpandAllDiffHunks",
+      "cmd-h": "pane::ActivatePreviousItem",
+      "cmd-l": "pane::ActivateNextItem",
+      "shift-j": null,
+      "cmd-e": "project_panel::ToggleFocus",
+      "cmd-[": "editor::GoToPreviousHunk",
+      // todo: deprecated
+      "cmd-m": "editor::GoToHunk"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "shift-j": null,
+      "cmd-h": "pane::ActivatePreviousItem",
+      "cmd-l": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-t": "workspace::NewTerminal",
+      "cmd-h": "pane::ActivatePreviousItem",
+      "cmd-l": "pane::ActivateNextItem"
+    }
+  }
+]
