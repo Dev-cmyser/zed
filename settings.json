@@ -1,7 +1,16 @@
 {
+  "context_servers": {
+    "mcp-server-github": {
+      "settings": {
+        "github_personal_access_token": ""
+      }
+    }
+  },
+  "show_edit_predictions": false,
   "edit_predictions": {
     "disabled_globs": ["*.env"],
-    "mode": "subtle"
+    "mode": "subtle",
+    "enabled_in_text_threads": false
   },
   "chat_panel": {
     "dock": "right"
@@ -27,21 +36,55 @@
   "features": {
     "edit_prediction_provider": "supermaven"
   },
-  "assistant": {
+  "agent": {
+    "default_profile": "write",
+    "play_sound_when_agent_done": true,
+    "always_allow_tool_actions": true,
+    "preferred_completion_mode": "burn",
+    "stream_edits": true,
+    "single_file_review": false,
+    "enable_feedback": false,
+
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "open": true,
+          "create_directory": true,
+          "batch_tool": true,
+          "code_actions": true,
+          "code_symbols": true,
+          "contents": true,
+          "copy_path": true,
+          "create_file": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "rename": true,
+          "symbol_info": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    },
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "model": "claude-3-5-sonnet"
     },
-    "version": "2",
-    "default_open_ai_model": "gpt-4",
-    "provider": {
-      "name": "openai",
-      "default_model": "gpt-4",
-      "available_models": []
-    }
+    "version": "2"
   },
   "theme": {
-    "mode": "light",
+    "mode": "system",
     "light": "One Light",
     "dark": "One Dark"
   },
@@ -67,7 +110,7 @@
       "show_edit_predictions": false
     },
     "Go": {
-      "show_edit_predictions": true,
+      "language_servers": ["gopls", "golangci-lint"],
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.organizeImports": true,
@@ -95,13 +138,19 @@
     },
     "View Tree ($mol)": {
       "language_servers": ["typescript-language-server"],
-      "enable_language_server": true
+      "enable_language_server": true,
+      "tab_size": 2,
+      "hard_tabs": true,
+      "ensure_final_newline_on_save": true
     }
   },
   "terminal": {
     "max_scroll_history_lines": 100000,
     "toolbar": {
       "breadcrumbs": false
+    },
+    "env": {
+      "EDITOR": "zed --wait"
     }
   },
   "toolbar": {
@@ -111,7 +160,7 @@
   "file_types": {
     "Shell Script": [".env.*", "*.env"],
     "Dockerfile": ["*Dockerfile.*"],
-    "ini": ["*.web.ts", "*.test.ts", "*.node.ts"]
+    "Make": ["Makefile"]
   },
   "language_models": {
     "custom_llm": {
@@ -133,6 +182,24 @@
     "protobuf-language-server": {
       "binary": {
         "path": "protols"
+      }
+    },
+    "gopls": {
+      "initialization_options": {
+        "buildFlags": ["-tags=integration"]
+      }
+    },
+    "golangci-lint": {
+      "filetypes": ["go"],
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--show-stats=false",
+          "--issues-exit-code=1"
+        ]
       }
     }
   }

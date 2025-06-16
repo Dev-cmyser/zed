@@ -1,4 +1,17 @@
 {
+  "context_servers": {
+    "mcp-server-github": {
+      "settings": {
+        "github_personal_access_token": ""
+      }
+    }
+  },
+  "show_edit_predictions": false,
+  "edit_predictions": {
+    "disabled_globs": ["*.env"],
+    "mode": "subtle",
+    "enabled_in_text_threads": false
+  },
   "chat_panel": {
     "dock": "right"
   },
@@ -14,51 +27,90 @@
       "nickname": "my vpn"
     }
   ],
-  "features": {
-    "inline_completion_provider": "supermaven"
+  "buffer_font_features": {
+    "calt": true
   },
-  "assistant": {
+  "ui_font_features": {
+    "calt": true
+  },
+  "features": {
+    "edit_prediction_provider": "supermaven"
+  },
+  "agent": {
+    "default_profile": "write",
+    "play_sound_when_agent_done": true,
+    "always_allow_tool_actions": true,
+    "preferred_completion_mode": "max",
+    "stream_edits": true,
+    "single_file_review": false,
+    "enable_feedback": false,
+
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "open": true,
+          "create_directory": true,
+          "batch_tool": true,
+          "code_actions": true,
+          "code_symbols": true,
+          "contents": true,
+          "copy_path": true,
+          "create_file": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "rename": true,
+          "symbol_info": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    },
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "model": "claude-3-5-sonnet"
     },
-    "version": "2",
-    "default_open_ai_model": "gpt-4",
-    "provider": {
-      "name": "openai",
-      "default_model": "gpt-4",
-      "available_models": []
-    }
+    "version": "2"
   },
   "theme": {
-    "mode": "light",
+    "mode": "system",
     "light": "One Light",
     "dark": "One Dark"
   },
-
   "vim_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "confirm_quit": true,
   "current_line_highlight": "gutter",
   "autosave": "on_window_change",
-  "relative_line_numbers": true,
+  "relative_line_numbers": false,
   "preferred_line_length": 120,
-
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
       "delay_ms": 1000
     }
   },
-
   "project_panel": {
     "auto_fold_dirs": false
   },
-
   "languages": {
+    "JSON": {
+      "show_edit_predictions": false
+    },
     "Go": {
-      "show_inline_completions": true,
+      "language_servers": ["gopls", "!golangci-lint"],
       "format_on_save": "on",
       "code_actions_on_format": {
         "source.organizeImports": true,
@@ -73,15 +125,32 @@
     },
     "YAML": {
       "prettier": {
-        "bracketSpacing": false,
         "allowed": false
-      }
+      },
+      "format_on_save": "off"
+    },
+    "Proto": {
+      "prettier": {
+        "allowed": true,
+        "plugins": ["@prettier/plugin-proto"]
+      },
+      "format_on_save": "on"
+    },
+    "View Tree ($mol)": {
+      "language_servers": ["typescript-language-server"],
+      "enable_language_server": true,
+      "tab_size": 2,
+      "hard_tabs": true,
+      "ensure_final_newline_on_save": true
     }
   },
   "terminal": {
     "max_scroll_history_lines": 100000,
     "toolbar": {
       "breadcrumbs": false
+    },
+    "env": {
+      "EDITOR": "zed --wait"
     }
   },
   "toolbar": {
@@ -90,6 +159,48 @@
   },
   "file_types": {
     "Shell Script": [".env.*", "*.env"],
-    "Dockerfile": ["*Dockerfile.*"]
+    "Dockerfile": ["*Dockerfile.*"],
+    "Make": ["Makefile"]
+  },
+  "language_models": {
+    "custom_llm": {
+      "api_url": "https://corellm-retrieval.wb.ru/llama3/v1/chat/completions",
+      "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJPemdJNEFaZVZ4RGw4VWpiSVBDdkpnS0daNFF3TzVueCJ9.WB0NYuBkXuTa7quL_TR2gUVYvs0q6g2WVJpQTGZCVQE",
+        "Content-Type": "application/json"
+      },
+      "available_models": [
+        {
+          "name": "Meta-Llama-3-70B-Instruct-GPTQ",
+          "display_name": "Llama 3 (70B)",
+          "max_tokens": 100000
+        }
+      ]
+    }
+  },
+  "lsp": {
+    "protobuf-language-server": {
+      "binary": {
+        "path": "protols"
+      }
+    },
+    "gopls": {
+      "initialization_options": {
+        "buildFlags": ["-tags=integration"]
+      }
+    },
+    "golangci-lint": {
+      "filetypes": ["go"],
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--show-stats=false",
+          "--issues-exit-code=1"
+        ]
+      }
+    }
   }
 }

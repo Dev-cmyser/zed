@@ -40,14 +40,13 @@
     "bindings": {
       "cmd-k cmd-w": "pane::CloseInactiveItems",
       "ctrl-2": "editor::Rename",
-      "cmd-'": "editor::ExpandAllDiffHunks",
       "cmd-h": "pane::ActivatePreviousItem",
       "cmd-l": "pane::ActivateNextItem",
       "cmd-e": "project_panel::ToggleFocus",
-      "shift-j": null
+      "shift-j": null,
       // todo: deprecated
-      // "cmd-m": "editor::GoToHunk"
-      // "cmd-[": "editor::GoToPreviousHunk",
+      "cmd-m": "editor::GoToHunk",
+      "cmd-[": "editor::GoToPreviousHunk"
     }
   },
   {
