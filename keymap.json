@@ -107,7 +107,8 @@
   {
     "context": "DebugPanel",
     "bindings": {
-      "cmd-shift-d": "workspace::ToggleBottomDock"
+      "cmd-shift-d": "workspace::ToggleBottomDock",
+      "escape": "workspace::ToggleBottomDock"
     }
   }
 ]
