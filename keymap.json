@@ -73,7 +73,14 @@
     "context": "Editor",
     "bindings": {
       "cmd-e": "project_panel::ToggleFocus",
-      "cmd-j": "workspace::ToggleBottomDock"
+      "cmd-j": "workspace::ToggleBottomDock",
+      "cmd-shift-d": "debug_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && !Dock && !Terminal",
+    "bindings": {
+      "cmd-j": "terminal_panel::ToggleFocus"
     }
   },
   {
@@ -89,6 +96,18 @@
       "left": "project_panel::CollapseSelectedEntry",
       "cmd-e": "project_panel::ToggleFocus",
       "right": "project_panel::ExpandSelectedEntry"
+    }
+  },
+  {
+    "context": "Dock && !DebugPanel",
+    "bindings": {
+      "cmd-shift-d": "debug_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "DebugPanel",
+    "bindings": {
+      "cmd-shift-d": "workspace::ToggleBottomDock"
     }
   }
 ]
