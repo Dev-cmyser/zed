@@ -1,7 +1,7 @@
 [
   {
     "bindings": {
-      "cmd-o": ["projects::OpenRecent", { "create_new_window": true }]
+      "cmd-o": ["projects::OpenRecent", { "create_new_window": false }]
     }
   },
   {
@@ -42,9 +42,7 @@
       "ctrl-2": "editor::Rename",
       "cmd-h": "pane::ActivatePreviousItem",
       "cmd-l": "pane::ActivateNextItem",
-      "cmd-e": "project_panel::ToggleFocus",
       "shift-j": null,
-      // todo: deprecated
       "cmd-m": "editor::GoToHunk",
       "cmd-[": "editor::GoToPreviousHunk"
     }
@@ -61,11 +59,36 @@
     "context": "Terminal",
     "use_key_equivalents": true,
     "bindings": {
+      "cmd-j": "workspace::ToggleBottomDock",
       "cmd-t": "workspace::NewTerminal",
       "cmd-h": "pane::ActivatePreviousItem",
       "cmd-l": "pane::ActivateNextItem",
       "escape": "buffer_search::Dismiss",
-      "alt-h": "menu::SelectNext"
+      "alt-h": "menu::SelectNext",
+      "shift-h": "workspace::ActivatePaneLeft",
+      "shift-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-e": "project_panel::ToggleFocus",
+      "cmd-j": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Dock && !Terminal",
+    "bindings": {
+      "cmd-j": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "use_key_equivalents": true,
+    "bindings": {
+      "left": "project_panel::CollapseSelectedEntry",
+      "cmd-e": "project_panel::ToggleFocus",
+      "right": "project_panel::ExpandSelectedEntry"
     }
   }
 ]

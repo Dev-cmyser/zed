@@ -1,38 +1,23 @@
 [
   {
     "bindings": {
-      "cmd-o": ["projects::OpenRecent", { "create_new_window": true }],
-      "alt-p": "file_finder::Toggle"
+      "cmd-o": ["projects::OpenRecent", { "create_new_window": false }]
     }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-h": "pane::ActivatePreviousItem",
-      "cmd-l": "pane::ActivateNextItem",
-      "cmd-e": "project_panel::ToggleFocus",
+      "alt-cmd-o": "workspace::Open",
       "cmd-n": "menu::SelectNext",
       "cmd-p": "menu::SelectPrevious"
     }
   },
   {
-    "context": "ProjectPanel",
-    "bindings": {}
-  },
-  {
     "context": "Pane",
+    "use_key_equivalents": true,
     "bindings": {
       "cmd-n": "search::SelectNextMatch",
-      "cmd-p": "search::SelectPreviousMatch",
-      "cmd-h": "pane::ActivatePreviousItem",
-      "cmd-l": "pane::ActivateNextItem"
-    }
-  },
-  {
-    "context": "TabSwitcher",
-    "bindings": {
-      "k": "menu::SelectPrevious",
-      "j": "menu::SelectNext"
+      "cmd-g": "search::SelectPreviousMatch"
     }
   },
   {
@@ -55,14 +40,13 @@
     "bindings": {
       "cmd-k cmd-w": "pane::CloseInactiveItems",
       "ctrl-2": "editor::Rename",
-      "cmd-'": "editor::ExpandAllDiffHunks",
       "cmd-h": "pane::ActivatePreviousItem",
       "cmd-l": "pane::ActivateNextItem",
-      "shift-j": null,
       "cmd-e": "project_panel::ToggleFocus",
-      "cmd-[": "editor::GoToPreviousHunk",
+      "shift-j": null,
       // todo: deprecated
-      "cmd-m": "editor::GoToHunk"
+      "cmd-m": "editor::GoToHunk",
+      "cmd-[": "editor::GoToPreviousHunk"
     }
   },
   {
@@ -75,10 +59,28 @@
   },
   {
     "context": "Terminal",
+    "use_key_equivalents": true,
     "bindings": {
+      "cmd-j": "workspace::ToggleBottomDock",
       "cmd-t": "workspace::NewTerminal",
       "cmd-h": "pane::ActivatePreviousItem",
-      "cmd-l": "pane::ActivateNextItem"
+      "cmd-l": "pane::ActivateNextItem",
+      "escape": "buffer_search::Dismiss",
+      "alt-h": "menu::SelectNext",
+      "shift-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "shift-l": ["workspace::ActivatePaneInDirection", "Right"]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-j": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Dock && !Terminal",
+    "bindings": {
+      "cmd-j": "terminal_panel::ToggleFocus"
     }
   }
 ]
