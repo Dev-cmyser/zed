@@ -64,9 +64,9 @@
       "cmd-h": "pane::ActivatePreviousItem",
       "cmd-l": "pane::ActivateNextItem",
       "escape": "buffer_search::Dismiss",
-      "alt-h": "menu::SelectNext",
-      "shift-h": "workspace::ActivatePaneLeft",
-      "shift-l": "workspace::ActivatePaneRight"
+      "alt-h": "menu::SelectNext"
+      // "shift-h": "workspace::ActivatePaneLeft",
+      // "shift-l": "workspace::ActivatePaneRight"
     }
   },
   {

@@ -1,6 +1,12 @@
 {
+  "agent_servers": {
+    "claude": {
+      "default_mode": "acceptEdits"
+    }
+  },
   "context_servers": {
     "mcp-server-github": {
+      "source": "extension",
       "settings": {
         "github_personal_access_token": ""
       }
@@ -11,9 +17,6 @@
     "disabled_globs": ["*.env"],
     "mode": "subtle",
     "enabled_in_text_threads": false
-  },
-  "chat_panel": {
-    "dock": "right"
   },
   "ssh_connections": [
     {
@@ -38,10 +41,10 @@
   },
   "agent": {
     "default_profile": "write",
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": false,
     "always_allow_tool_actions": true,
-    "preferred_completion_mode": "max",
-    "stream_edits": true,
+    "preferred_completion_mode": "normal",
+    "stream_edits": false,
     "single_file_review": false,
     "enable_feedback": false,
 
@@ -79,16 +82,18 @@
     },
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet"
-    },
-    "version": "2"
+      "model": "claude-sonnet-4"
+    }
   },
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark"
+    // "light": "Ayu Light",
+    // "dark": "Ayu Mirage"
+    "dark": "Ayu Dark"
   },
   "vim_mode": true,
+  "helix_mode": false,
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "confirm_quit": true,
@@ -96,10 +101,14 @@
   "autosave": "on_window_change",
   "relative_line_numbers": false,
   "preferred_line_length": 120,
+  "minimap": { "display_in": "active_editor" },
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
       "delay_ms": 1000
+    },
+    "blame": {
+      "show_avatar": true
     }
   },
   "project_panel": {
@@ -110,8 +119,8 @@
       "show_edit_predictions": false
     },
     "Go": {
-      "language_servers": ["gopls", "!golangci-lint"],
-      "format_on_save": "on",
+      "language_servers": ["gopls", "golangci-lint"],
+      "format_on_save": "off",
       "code_actions_on_format": {
         "source.organizeImports": true,
         "sousce.fixAll": true
@@ -144,6 +153,7 @@
       "ensure_final_newline_on_save": true
     }
   },
+  "format_on_save": "on",
   "terminal": {
     "max_scroll_history_lines": 100000,
     "toolbar": {
@@ -162,22 +172,7 @@
     "Dockerfile": ["*Dockerfile.*"],
     "Make": ["Makefile"]
   },
-  "language_models": {
-    "custom_llm": {
-      "api_url": "https://corellm-retrieval.wb.ru/llama3/v1/chat/completions",
-      "headers": {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJPemdJNEFaZVZ4RGw4VWpiSVBDdkpnS0daNFF3TzVueCJ9.WB0NYuBkXuTa7quL_TR2gUVYvs0q6g2WVJpQTGZCVQE",
-        "Content-Type": "application/json"
-      },
-      "available_models": [
-        {
-          "name": "Meta-Llama-3-70B-Instruct-GPTQ",
-          "display_name": "Llama 3 (70B)",
-          "max_tokens": 100000
-        }
-      ]
-    }
-  },
+  "language_models": {},
   "lsp": {
     "protobuf-language-server": {
       "binary": {
@@ -190,7 +185,6 @@
       }
     },
     "golangci-lint": {
-      "filetypes": ["go"],
       "initialization_options": {
         "command": [
           "golangci-lint",
