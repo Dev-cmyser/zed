@@ -36,9 +36,9 @@
     }
   },
   {
-    "context": "Editor && vim_mode == normal",
+    "context": "Editor && vim_mode == normal || ChannelModal ",
     "bindings": {
-      "cmd-k cmd-w": "pane::CloseInactiveItems",
+      "cmd-k cmd-w": "pane::CloseOtherItems",
       "ctrl-2": "editor::Rename",
       "cmd-h": "pane::ActivatePreviousItem",
       "cmd-l": "pane::ActivateNextItem",
@@ -48,7 +48,7 @@
     }
   },
   {
-    "context": "Editor && vim_mode == visual",
+    "context": "Editor && vim_mode == visual ",
     "bindings": {
       "shift-j": null,
       "cmd-h": "pane::ActivatePreviousItem",
