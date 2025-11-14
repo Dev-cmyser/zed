@@ -1,4 +1,10 @@
 {
+  "audio": {
+    
+  },
+  "calls": {
+    "share_on_join": true
+  },
   "agent_servers": {
     "claude": {
       "default_mode": "acceptEdits"
@@ -119,18 +125,24 @@
       "show_edit_predictions": false
     },
     "Go": {
+      "formatter": [
+        {
+          "code_action": "source.organizeImports"
+        },
+        {
+          "code_action": "sousce.fixAll"
+        }
+      ],
       "language_servers": ["gopls", "golangci-lint"],
-      "format_on_save": "off",
-      "code_actions_on_format": {
-        "source.organizeImports": true,
-        "sousce.fixAll": true
-      }
+      "format_on_save": "off"
     },
     "TypeScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      },
-      "formatter": "prettier"
+      "formatter": [
+        {
+          "code_action": "source.fixAll.eslint"
+        },
+        "prettier"
+      ]
     },
     "YAML": {
       "prettier": {
@@ -161,7 +173,8 @@
     },
     "env": {
       "EDITOR": "zed --wait"
-    }
+    },
+    "keep_selection_on_copy": false
   },
   "toolbar": {
     "quick_actions": false,

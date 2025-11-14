@@ -38,7 +38,7 @@
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
-      "cmd-k cmd-w": "pane::CloseInactiveItems",
+      "cmd-k cmd-w": "pane::CloseOtherItems",
       "ctrl-2": "editor::Rename",
       "cmd-h": "pane::ActivatePreviousItem",
       "cmd-l": "pane::ActivateNextItem",
