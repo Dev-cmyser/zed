@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "calls": {
     "mute_on_join": true
   },
@@ -9,6 +10,15 @@
   "git_panel": {
     "sort_by_path": true
   },
+||||||| d3c99e5
+=======
+  "audio": {
+    
+  },
+  "calls": {
+    "share_on_join": true
+  },
+>>>>>>> 3e6b33b06db884499e8006844fe8deae548cc815
   "agent_servers": {
     "codex": {
       "default_mode": "full-access"
@@ -144,14 +154,35 @@
       "ensure_final_newline_on_save": true
     },
     "Go": {
+<<<<<<< HEAD
       "code_actions_on_format": {
         "source.organizeImports": true,
         "sousce.fixAll": true
       },
       "language_servers": ["gopls", "golangci-lint"],
       "format_on_save": "on"
+||||||| d3c99e5
+      "language_servers": ["gopls", "golangci-lint"],
+      "format_on_save": "off",
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "sousce.fixAll": true
+      }
+=======
+      "formatter": [
+        {
+          "code_action": "source.organizeImports"
+        },
+        {
+          "code_action": "sousce.fixAll"
+        }
+      ],
+      "language_servers": ["gopls", "golangci-lint"],
+      "format_on_save": "off"
+>>>>>>> 3e6b33b06db884499e8006844fe8deae548cc815
     },
     "TypeScript": {
+<<<<<<< HEAD
       "code_actions_on_format": {
         "source.organizeImports": false,
         "source.fixAll": false
@@ -160,6 +191,19 @@
       "prettier": {
         "allowed": false
       }
+||||||| d3c99e5
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "formatter": "prettier"
+=======
+      "formatter": [
+        {
+          "code_action": "source.fixAll.eslint"
+        },
+        "prettier"
+      ]
+>>>>>>> 3e6b33b06db884499e8006844fe8deae548cc815
     },
     "YAML": {
       "prettier": {
@@ -187,7 +231,18 @@
     "toolbar": {
       "breadcrumbs": false
     },
+<<<<<<< HEAD
     "keep_selection_on_copy": false
+||||||| d3c99e5
+    "env": {
+      "EDITOR": "zed --wait"
+    }
+=======
+    "env": {
+      "EDITOR": "zed --wait"
+    },
+    "keep_selection_on_copy": false
+>>>>>>> 3e6b33b06db884499e8006844fe8deae548cc815
   },
   "toolbar": {
     "quick_actions": false,
