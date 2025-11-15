@@ -44,7 +44,37 @@
       "cmd-l": "pane::ActivateNextItem",
       "shift-j": null,
       "cmd-m": "editor::GoToHunk",
-      "cmd-[": "editor::GoToPreviousHunk"
+      "cmd-[": "editor::GoToPreviousHunk",
+      // GIT
+      //
+      // stage
+      "cmd-g a": "git::StageAll",
+      "cmd-g shift-a": "git::UnstageAll",
+      "cmd-g s": "git::StageFile",
+      "cmd-g shift-s": "git::UnstageFile",
+
+      // toggle / range
+      "cmd-g t": "git::ToggleStaged",
+      "cmd-g r": "git::RestoreFile",
+
+      // diff
+      "cmd-g d": "git::Diff",
+
+      // commit
+      "cmd-g c": "git::Commit",
+      "cmd-g shift-c": "git::Amend",
+      "cmd-g g": "git::GenerateCommitMessage",
+
+      // network
+      "cmd-g f": "git::Fetch",
+      "cmd-g p": "git::Pull",
+      "cmd-g shift-p": "git::PullRebase",
+      "cmd-g u": "git::Push",
+      "cmd-g shift-u": "git::ForcePush",
+
+      // cleanup
+      "cmd-g x": "git::RestoreTrackedFiles",
+      "cmd-g shift-x": "git::TrashUntrackedFiles"
     }
   },
   {
