@@ -36,7 +36,7 @@
     }
   },
   {
-    "context": "Editor && vim_mode == normal || ChannelModal ",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       "cmd-k cmd-w": "pane::CloseOtherItems",
       "ctrl-2": "editor::Rename",
@@ -74,7 +74,10 @@
 
       // cleanup
       "cmd-g x": "git::RestoreTrackedFiles",
-      "cmd-g shift-x": "git::TrashUntrackedFiles"
+      "cmd-g shift-x": "git::TrashUntrackedFiles",
+      // list branches
+      "cmd-g b": "git::Branch",
+      "cmd-g b d": "git::BranchDiff"
     }
   },
   {
