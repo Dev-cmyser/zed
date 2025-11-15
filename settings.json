@@ -176,7 +176,6 @@
       "format_on_save": "on"
     },
     "ViewTree ($mol)": {
-      "language_servers": ["typescript-language-server"],
       "enable_language_server": true,
       "tab_size": 2,
       "hard_tabs": true,

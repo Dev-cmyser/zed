@@ -110,5 +110,17 @@
       "cmd-shift-d": "workspace::ToggleBottomDock",
       "escape": "workspace::ToggleBottomDock"
     }
+  },
+  {
+    "context": "CommitEditor > Editor",
+    "bindings": {
+      "cmd-shift-g": "git::ExpandCommitEditor"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-g": "git_panel::ToggleFocus"
+    }
   }
 ]
