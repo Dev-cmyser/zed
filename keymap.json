@@ -76,8 +76,8 @@
       "cmd-g x": "git::RestoreTrackedFiles",
       "cmd-g shift-x": "git::TrashUntrackedFiles",
       // list branches
-      "cmd-g b": "git::Branch",
-      "cmd-g b d": "git::BranchDiff"
+      "cmd-g b": "git::Branch"
+      // "cmd-g b d": "git::BranchDiff"
     }
   },
   {
